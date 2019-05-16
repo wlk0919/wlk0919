@@ -12,7 +12,7 @@
     {% if allbook %}
     <ul>
         {% for book in allbook %}
-        <li><a href="/book1/detail/{{book.id}}/">{{book.name}}</a></li>
+        <li><a href="/book1/detail/{{book.id}}/">{{book.name}}</a>     <a href="{% url 'book1:deletebook' book.id %}">删除</a></li>
         {% empty %}
         <li>没有书籍信息</li>
         {% endfor %}

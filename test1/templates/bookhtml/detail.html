@@ -11,16 +11,19 @@
     {% if book %}
     <ul>
         {% for hero in book.heroinfo_set.all %}
-        <li>{{hero.name}}--{{hero.ender}}--{{hero.content}}</li>
+        <li>{{hero.name}}--{{hero.ender}}--{{hero.content}}   <a href="{% url 'book1:deletehero' hero.id %}">删除</a></li>
         {% empty %}
         <li>没有英雄</li>
         {% endfor %}
+        <a href="{% url 'book1:addhero' book.id %}">添加英雄</a>
+        <a href="{% url 'book1:updatehero' book.id %}">更改</a>
     </ul>
     {% else %}
     没有该书籍信息
     {% endif %}
+
     <a href="/book1/list/">返回类表</a>
-    <img src="/static/img/falli.jpg" alt="">
+    {# <img src="/static/img/falli.jpg" alt=""> #}
 </div>
 </body>
 </html>

@@ -10,7 +10,57 @@
     <h2>首页</h2>
 
     <a href="/book1/list/">回到列表</a>
-    <img src="/static/img/falli.jpg" alt="">
+    <!--<img src="/static/img/falli.jpg" alt="">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="/static/img/falli.jpg" alt="...">
+      <div class="carousel-caption">
+        法拉利1
+      </div>
+    </div>
+    <div class="item">
+      <img src="/static/img/falli2.jpg" alt="...">
+      <div class="carousel-caption">
+        法拉利2
+      </div>
+    </div>
+    <div class="item">
+      <img src="/static/img/falli3.jpg" alt="...">
+      <div class="carousel-caption">
+        劳斯莱斯
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    <script>
+        $('.carousel').carousel({
+            interval: 1000
+        })
+    </script>
 </div>
 </body>
 </html>
