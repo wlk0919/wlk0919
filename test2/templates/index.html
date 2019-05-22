@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block left %}
+{% if page %}
+{% for article in page.object_list %}
+{# 文章id #}
+<article class="post post-{{article.id}}">
+    <header class="entry-header">
+        <h1 class="entry-title">
+            {# 文章名 #}
+            <a href="single.html">{{article.title}}</a>
+        </h1>
+        <div class="entry-meta">
+            {# 文章分类 #}
+            <span class="post-category"><a href="#">{{article.category.title}}</a></span>
+            <span class="post-date"><a href="#"><time class="entry-date"
+                                                      datetime="2012-11-09T23:15:57+00:00">2017年5月11日</time></a></span>
+            {# 名字 #}
+            <span class="post-author"><a href="#">{{article.auther.username}}</a></span>
+            <span class="comments-link"><a href="#">{{article.comment_set.count}} 评论</a></span>
+
+            <span class="views-count"><a href="#">{{article.views}} 阅读</a></span>
+        </div>
+    </header>
+    <div class="entry-content clearfix">
+        <p>{{article.body|myslice:20}}</p>
+        <div class="read-more cl-effect-14">
+            <a href="{% url 'polls:detail' article.id %}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+        </div>
+    </div>
+</article>
+
+{% empty  %}
+<li>没有文章对象</li>
+{% else %}
+没有文章信息
+{% endif %}
+<div class="pagination">
+    <ul>
+
+        {% if page.has_previous %}
+        {# 前一页#}
+        <li><a href="/?page={{page.previous_page_number}}">上一页</a></li>
+        {% endif %}
+
+        {# 页数 #}
+        {% for num in page.paginator.page_range  %}
+        <li><a href="/?page={{num}}"> {{ num }}  </a> </li>
+
+        {% endfor %}
+
+        {# 下一页 #}
+        {% if page.has_next %}
+            <li><a href="/?page={{page.next_page_number}}">下一页</a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}
