@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+<div class="container">
+    <h2>{{question.title}}</h2>
+    {# 分解链接   三个部分分别代表127.0.0.1：8000 ，/polls/detail/ ,id #}
+
+    <form action="{% url 'polls:detail' question.id %}" method="post">
+        <ul>
+        {% for c in question.choice_set.all %}
+        {# 单选框 #}
+            {# checked表示默认选择 #}
+            <li><input checked type="radio" name="choice" value="{{c.id}}">{{c.title}}</li>
+        {% endfor %}
+    </ul>
+    <input type="submit"  value="投票">
+    </form>
+
+    <a href="{% url 'polls:index' %}">返回首页</a>
+</div>
+
+
+</body>
+</html>
