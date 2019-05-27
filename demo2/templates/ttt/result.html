@@ -7,6 +7,8 @@
 <body>
 <div class="container">
     <h2>投票结果</h2>
+    {{question}}
+    {# 证明了我的猜想模板页面中的数据只能从view视图函数中获取，而view视图函数可以接受模板函数返回的url和method（post。git） #}
     <ul>
         {% for c in question.choice_set.all %}
         <li>{{c.title}}--得票--{{c.votes}}</li>

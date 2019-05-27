@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
+#
 from .models import *
-
+#
 from django.http import HttpResponse,HttpResponseRedirect
 # Create your views here.
 
@@ -10,18 +11,22 @@ from django.http import HttpResponse,HttpResponseRedirect
 def index(request):
     questions=Question.objects.all()
     # return render(request,'ttt/index.html',{})
-    print(locals())
+    print('请求的方法是：',request.method)
+    print('向web端发送全部数据：',locals())
     # locals向模板传输该方法里所有的信息
     # 结果是：{'questions': <QuerySet [<Question: 今天吃什么>]>, 'request': <WSGIRequest: GET '/polls/index/'>}
+    # 渲染
     return render(request, 'ttt/index.html', locals())
 
 
 def detail(request,id):
     question=Question.objects.get(pk=id)
+    # 之前的request方法都是GET
     print("111",request.method)
+    # form表单，提交后的方法变为POST方法
     if request.method=='POST':
-        print("=======")
-        # choice要和detail。html中的单选框命名name的值
+        print("=======")#多用print来进行调试
+        # choice是提交选项时的name值
         c_id=request.POST.get("choice")
         choice=Choice.objects.get(pk=c_id)
         print(choice.votes)

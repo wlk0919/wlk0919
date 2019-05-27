@@ -6,12 +6,18 @@
 </head>
 <body>
 <div class="container">
+    {# 验证过了可以从应用的view视图函数中获取其中定义的值 #}
+    <h2>{{questions}}</h2>
     <h2>问题索引</h2>
     <ul>
         {# 遍历所有问题，questions要和视图函数中定义的字段相同 #}
         {% for q in questions %}
+            {# 事实证明了q是打印的每个事件的问题 #}
+
         {# 链接，组成url是127.0.0.1:8000， 'polls:detail'这是虚拟路径/polls/detail， q.id是该问题的id #}
-        <li><a href="{% url 'polls:detail' q.id %}">{{ q.title }}</a> </li>
+        {# 模板中解除硬编码 #}
+
+            <li><a href="{% url 'polls:detail' q.id %}">{{ q.title }}</a> </li>
         {% empty %}
         <li>没有投票</li>
         {% endfor %}

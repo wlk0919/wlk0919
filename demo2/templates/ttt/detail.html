@@ -8,11 +8,12 @@
 <div class="container">
     <h2>{{question.title}}</h2>
     {# 分解链接   三个部分分别代表127.0.0.1：8000 ，/polls/detail/ ,id #}
-
+    {# 必用表单 路径填当前的页面的路径 #}
     <form action="{% url 'polls:detail' question.id %}" method="post">
         <ul>
-        {% for c in question.choice_set.all %}
-        {# 单选框 #}
+            {# 在html文件中.all后不用括号 #}
+            {% for c in question.choice_set.all %}
+            {# 单选框 #}
             {# checked表示默认选择 #}
             <li><input checked type="radio" name="choice" value="{{c.id}}">{{c.title}}</li>
         {% endfor %}
