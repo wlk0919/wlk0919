@@ -121,4 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT='/home/wang111/djangoenv/wlk0919/staticroot'
+STATIC_ROOT='/home/wang111/djangoenv/wlk0919/demo2/staticroot'
