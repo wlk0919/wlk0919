@@ -1,5 +1,6 @@
 from django.db import models
-
+# 引用Django自带的用户类
+from django.contrib.auth.models import User
 # Create your models here.
 # 问题类
 class  Question(models.Model):
@@ -28,4 +29,9 @@ class Choice(models.Model):
         verbose_name_plural=verbose_name
     def __str__(self):
         return self.title
+class myUser(User):
+    url=models.URLField(blank=True,null=True,default="http://www.baidu.com")
+    class Meta():
+        verbose_name='用户'
+        verbose_name_plural=verbose_name
 

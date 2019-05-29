@@ -5,6 +5,7 @@
     <title>首页</title>
 </head>
 <body>
+当前用户：{{username}} <a href="{% url 'polls:login' %}">退出</a>
 <div class="container">
     {# 验证过了可以从应用的view视图函数中获取其中定义的值 #}
     <h2>{{questions}}</h2>
@@ -21,7 +22,8 @@
         {% empty %}
         <li>没有投票</li>
         {% endfor %}
-    </ul>
+
+        </ul>
 </div>
 
 </body>

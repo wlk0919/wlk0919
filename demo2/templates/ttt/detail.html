@@ -5,6 +5,7 @@
     <title>详情页</title>
 </head>
 <body>
+当前用户：{{username}} <a href="{% url 'polls:login' %}">退出</a>
 <div class="container">
     <h2>{{question.title}}</h2>
     {# 分解链接   三个部分分别代表127.0.0.1：8000 ，/polls/detail/ ,id #}

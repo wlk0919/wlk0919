@@ -5,6 +5,7 @@
     <title>结果页</title>
 </head>
 <body>
+当前用户：{{username}} <a href="{% url 'polls:login' %}">退出</a>
 <div class="container">
     <h2>投票结果</h2>
     {{question}}
