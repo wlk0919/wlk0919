@@ -63,6 +63,10 @@ def checkout(request,id):
     return  render(request,'ttt/checkout.html',locals())
 
 
+def contact(require):
+    return render(require,'ttt/contact.html')
+
+
 
 
 

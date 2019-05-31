@@ -10,5 +10,6 @@ url(r'^register/$',views.register,name='register'),
     url(r'^index/$',views.index,name='index'),
     url(r'single/(\d+)/$',views.single,name='single'),
     url(r'^checkout/(\d+)/$',views.checkout,name='checkout'),
+    url(r'^contact/$',views.contact,name='contact'),
 ]
 
